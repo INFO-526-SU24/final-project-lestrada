@@ -57,7 +57,7 @@ A brief description of your dataset including its provenance, dimensions, etc. a
 
 The coffee survey was collected during a YouTube event called the "Great American Coffee Taste Test". It has a total of 4042 observations (rows), and 57 variables (columns).
 
-I chose this data set because I am an avid coffee drinker and I used to work at a local Mexican style coffee shop name Tierra Mia in the Los Angles area.
+I chose this data set because I am an avid coffee drinker and would like to know what other fellow coffee lovers like to drink, and if they spend as much money on coffee as I do. I also used to work at a local Mexican style coffee shop name Tierra Mia in the Los Angles area. Exploring this data set would just give me insight into the community that I would like to have.
 
 Make sure to load the data and use inline code for some of this information.
 
@@ -73,3 +73,15 @@ Q2: What is the favorite kinds of coffee for each age group?
 
 -   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
     -   variables: total_spend, age, favorite. Will have to create a count of total_spend variable per age group and count of favorite drinks per age group.
+
+Task List:
+
+| Task Name    | Status       | Assignee | Due   | Priority | Summary |
+|--------------|--------------|----------|-------|----------|---------|
+| Import Data  | compelte     | luis     | 05/29 | Low      |         |
+| Explore Data | In Progress  | luis     | 06/01 | Moderate |         |
+| Q1           | Not Started  | luis     | 06/03 | High     |         |
+| Q2           | Not Started  | luis     | 06/05 | High     |         |
+| Write Up     | Not Started  | luis     | 06/07 | High     |         |
+| Presentation | Not Started  | luis     | 06/10 | High     |         |
+| Final Review | Not Started  | luis     | 06/15 | Moderate |         |
