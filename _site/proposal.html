@@ -4755,6 +4755,7 @@ vertical-align: -.125em;
    
   <ul>
   <li><a href="#dataset" id="toc-dataset" class="nav-link active" data-scroll-target="#dataset">Dataset</a></li>
+  <li><a href="#dataset-description" id="toc-dataset-description" class="nav-link" data-scroll-target="#dataset-description">Dataset Description</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   <li><a href="#analysis-plan" id="toc-analysis-plan" class="nav-link" data-scroll-target="#analysis-plan">Analysis plan</a></li>
   </ul>
@@ -4826,11 +4827,12 @@ vertical-align: -.125em;
 <span id="cb2-3"><a href="#cb2-3"></a></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="co">#glimpse(coffee_survey)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.</p>
-<p>##Dataset</p>
+</section>
+<section id="dataset-description" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-description">Dataset Description</h2>
 <ul>
-<li><p>The coffee survey was collected during a YouTube event called the “Great American Coffee Taste Test”. It has a total of 4042 observations (rows), and 57 variables (columns).</p></li>
-<li><p>I chose this data set because I am an avid coffee drinker and would like to know what other fellow coffee lovers like to drink, and if they spend as much money on coffee as I do. I also used to work at a local Mexican style coffee shop name Tierra Mia in the Los Angles area. Exploring this data set would just give me insight into the community that I would like to have.</p></li>
+<li><p>The coffee survey was collected from people participated in a YouTube event called the “Great American Coffee Taste Test”. This event was primairly to taste test 4 different types of coffee, while the entire survey collected a wide variety of information. It has a total of 4042 participants/observations (rows), and 57 variables (columns).</p></li>
+<li><p>I chose this data set because I am an avid coffee drinker and would like to know what other fellow coffee lovers like to drink, and if they spend as much money on coffee as I do. I also used to work at a local Mexican style coffee shop named Tierra Mia in the Los Angles area. Exploring this data set would just give me insight into the community that I would like to have.</p></li>
 </ul>
 </section>
 <section id="questions" class="level2">
@@ -4842,14 +4844,12 @@ vertical-align: -.125em;
 <section id="analysis-plan" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-plan">Analysis plan</h2>
 <ul>
-<li>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+<li>I am planning on creating either a heat map like plot of the with count as the gradient or stacked bar charts</li>
+<li>The variables I need to use are listed below along with the question that was asked to participants in the survey:
 <ul>
-<li>The variables I need to use are listed below along with the questions asked in the survey:
-<ul>
-<li>total_spend: In total, much money do you typically spend on coffee in a month?</li>
+<li>total_spend: In total, how much money do you typically spend on coffee in a month?</li>
 <li>favorite: What is your favorite coffee drink?</li>
 <li>age: What is your age?</li>
-</ul></li>
 <li>Will have to create a count of total_spend variable per age group and count of favorite drinks per age group.</li>
 </ul></li>
 </ul>
@@ -5628,42 +5628,40 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-56"><a href="#cb3-56"></a><span class="co">#glimpse(coffee_survey)</span></span>
 <span id="cb3-57"><a href="#cb3-57"></a><span class="in">```</span></span>
 <span id="cb3-58"><a href="#cb3-58"></a></span>
-<span id="cb3-59"><a href="#cb3-59"></a>A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.</span>
+<span id="cb3-59"><a href="#cb3-59"></a><span class="fu">## Dataset Description</span></span>
 <span id="cb3-60"><a href="#cb3-60"></a></span>
-<span id="cb3-61"><a href="#cb3-61"></a>##Dataset</span>
+<span id="cb3-61"><a href="#cb3-61"></a><span class="ss">-   </span>The coffee survey was collected from people participated in a YouTube event called the &quot;Great American Coffee Taste Test&quot;. This event was primairly to taste test 4 different types of coffee, while the entire survey collected a wide variety of information. It has a total of 4042 participants/observations (rows), and 57 variables (columns).</span>
 <span id="cb3-62"><a href="#cb3-62"></a></span>
-<span id="cb3-63"><a href="#cb3-63"></a><span class="ss">-   </span>The coffee survey was collected during a YouTube event called the &quot;Great American Coffee Taste Test&quot;. It has a total of 4042 observations (rows), and 57 variables (columns).</span>
+<span id="cb3-63"><a href="#cb3-63"></a><span class="ss">-   </span>I chose this data set because I am an avid coffee drinker and would like to know what other fellow coffee lovers like to drink, and if they spend as much money on coffee as I do. I also used to work at a local Mexican style coffee shop named Tierra Mia in the Los Angles area. Exploring this data set would just give me insight into the community that I would like to have.</span>
 <span id="cb3-64"><a href="#cb3-64"></a></span>
-<span id="cb3-65"><a href="#cb3-65"></a><span class="ss">-   </span>I chose this data set because I am an avid coffee drinker and would like to know what other fellow coffee lovers like to drink, and if they spend as much money on coffee as I do. I also used to work at a local Mexican style coffee shop name Tierra Mia in the Los Angles area. Exploring this data set would just give me insight into the community that I would like to have.</span>
+<span id="cb3-65"><a href="#cb3-65"></a><span class="fu">## Questions</span></span>
 <span id="cb3-66"><a href="#cb3-66"></a></span>
-<span id="cb3-67"><a href="#cb3-67"></a><span class="fu">## Questions</span></span>
+<span id="cb3-67"><a href="#cb3-67"></a>The two questions you want to answer.</span>
 <span id="cb3-68"><a href="#cb3-68"></a></span>
-<span id="cb3-69"><a href="#cb3-69"></a>The two questions you want to answer.</span>
+<span id="cb3-69"><a href="#cb3-69"></a>Q1: Which age group spends the most money on coffee per month?</span>
 <span id="cb3-70"><a href="#cb3-70"></a></span>
-<span id="cb3-71"><a href="#cb3-71"></a>Q1: Which age group spends the most money on coffee per month?</span>
+<span id="cb3-71"><a href="#cb3-71"></a>Q2: What is the favorite kinds of coffee for each age group?</span>
 <span id="cb3-72"><a href="#cb3-72"></a></span>
-<span id="cb3-73"><a href="#cb3-73"></a>Q2: What is the favorite kinds of coffee for each age group?</span>
+<span id="cb3-73"><a href="#cb3-73"></a><span class="fu">## Analysis plan</span></span>
 <span id="cb3-74"><a href="#cb3-74"></a></span>
-<span id="cb3-75"><a href="#cb3-75"></a><span class="fu">## Analysis plan</span></span>
-<span id="cb3-76"><a href="#cb3-76"></a></span>
-<span id="cb3-77"><a href="#cb3-77"></a><span class="ss">-   </span>A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).</span>
-<span id="cb3-78"><a href="#cb3-78"></a><span class="ss">    -   </span>The variables I need to use are listed below along with the questions asked in the survey:</span>
-<span id="cb3-79"><a href="#cb3-79"></a><span class="ss">        -   </span>total_spend: In total, much money do you typically spend on coffee in a month?</span>
-<span id="cb3-80"><a href="#cb3-80"></a><span class="ss">        -   </span>favorite: What is your favorite coffee drink?</span>
-<span id="cb3-81"><a href="#cb3-81"></a><span class="ss">        -   </span>age: What is your age?</span>
-<span id="cb3-82"><a href="#cb3-82"></a><span class="ss">    -   </span>Will have to create a count of total_spend variable per age group and count of favorite drinks per age group.</span>
+<span id="cb3-75"><a href="#cb3-75"></a><span class="ss">-   </span>I am planning on creating either a heat map like plot of the with count as the gradient or stacked bar charts</span>
+<span id="cb3-76"><a href="#cb3-76"></a><span class="ss">-   </span>The variables I need to use are listed below along with the question that was asked to participants in the survey:</span>
+<span id="cb3-77"><a href="#cb3-77"></a><span class="ss">    -   </span>total_spend: In total, how much money do you typically spend on coffee in a month?</span>
+<span id="cb3-78"><a href="#cb3-78"></a><span class="ss">    -   </span>favorite: What is your favorite coffee drink?</span>
+<span id="cb3-79"><a href="#cb3-79"></a><span class="ss">    -   </span>age: What is your age?</span>
+<span id="cb3-80"><a href="#cb3-80"></a><span class="ss">    -   </span>Will have to create a count of total_spend variable per age group and count of favorite drinks per age group.</span>
+<span id="cb3-81"><a href="#cb3-81"></a></span>
+<span id="cb3-82"><a href="#cb3-82"></a>Task List:</span>
 <span id="cb3-83"><a href="#cb3-83"></a></span>
-<span id="cb3-84"><a href="#cb3-84"></a>Task List:</span>
-<span id="cb3-85"><a href="#cb3-85"></a></span>
-<span id="cb3-86"><a href="#cb3-86"></a>| Task Name    | Status       | Assignee | Due   | Priority | Summary |</span>
-<span id="cb3-87"><a href="#cb3-87"></a>|--------------|--------------|----------|-------|----------|---------|</span>
-<span id="cb3-88"><a href="#cb3-88"></a>| Import Data  | compelte     | luis     | 05/29 | Low      |         |</span>
-<span id="cb3-89"><a href="#cb3-89"></a>| Explore Data | In Progress  | luis     | 06/01 | Moderate |         |</span>
-<span id="cb3-90"><a href="#cb3-90"></a>| Q1           | Not Started  | luis     | 06/03 | High     |         |</span>
-<span id="cb3-91"><a href="#cb3-91"></a>| Q2           | Not Started  | luis     | 06/05 | High     |         |</span>
-<span id="cb3-92"><a href="#cb3-92"></a>| Write Up     | Not Started  | luis     | 06/07 | High     |         |</span>
-<span id="cb3-93"><a href="#cb3-93"></a>| Presentation | Not Started  | luis     | 06/10 | High     |         |</span>
-<span id="cb3-94"><a href="#cb3-94"></a>| Final Review | Not Started  | luis     | 06/15 | Moderate |         |</span>
+<span id="cb3-84"><a href="#cb3-84"></a>| Task Name    | Status       | Assignee | Due   | Priority | Summary |</span>
+<span id="cb3-85"><a href="#cb3-85"></a>|--------------|--------------|----------|-------|----------|---------|</span>
+<span id="cb3-86"><a href="#cb3-86"></a>| Import Data  | compelte     | luis     | 05/29 | Low      |         |</span>
+<span id="cb3-87"><a href="#cb3-87"></a>| Explore Data | In Progress  | luis     | 06/01 | Moderate |         |</span>
+<span id="cb3-88"><a href="#cb3-88"></a>| Q1           | Not Started  | luis     | 06/03 | High     |         |</span>
+<span id="cb3-89"><a href="#cb3-89"></a>| Q2           | Not Started  | luis     | 06/05 | High     |         |</span>
+<span id="cb3-90"><a href="#cb3-90"></a>| Write Up     | Not Started  | luis     | 06/07 | High     |         |</span>
+<span id="cb3-91"><a href="#cb3-91"></a>| Presentation | Not Started  | luis     | 06/10 | High     |         |</span>
+<span id="cb3-92"><a href="#cb3-92"></a>| Final Review | Not Started  | luis     | 06/15 | Moderate |         |</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
