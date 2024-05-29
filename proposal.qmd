@@ -15,13 +15,30 @@ format:
 editor: visual
 code-annotations: hover
 execute:
-  warning: false
+  warning: FALSE
+  message: FALSE
 ---
 
 ```{r}
 #| label: load-pkgs
 #| message: false
-library(tidyverse)
+
+if (!require("pacman")) 
+  install.packages("pacman")
+# use this line for installing/loading
+pacman::p_load(readr,
+               dplyr,
+               ggplot2,
+               scico,
+               here,
+               tidyverse,
+               ggrepel,
+               devtools,
+               ggridges,
+               dsbox,
+               fs,
+               palmerpenguins)
+#library(tidyverse)
 ```
 
 ## Dataset
@@ -29,9 +46,18 @@ library(tidyverse)
 ```{r}
 #| label: load-dataset
 #| message: false
+#| warning: false
+coffee_survey <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-05-14/coffee_survey.csv')
+
+
+#glimpse(coffee_survey)
 ```
 
 A brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.
+
+The coffee survey was collected during a YouTube event called the "Great American Coffee Taste Test". It has a total of 4042 observations (rows), and 57 variables (columns).
+
+I chose this data set because I am an avid coffee drinker and I used to work at a local Mexican style coffee shop name Tierra Mia in the Los Angles area.
 
 Make sure to load the data and use inline code for some of this information.
 
@@ -39,6 +65,11 @@ Make sure to load the data and use inline code for some of this information.
 
 The two questions you want to answer.
 
+Q1: Which age group spends the most money on coffee per month?
+
+Q2: What is the favorite kinds of coffee for each age group?
+
 ## Analysis plan
 
 -   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+    -   variables: total_spend, age, favorite. Will have to create a count of total_spend variable per age group and count of favorite drinks per age group.
