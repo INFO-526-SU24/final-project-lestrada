@@ -4,14 +4,14 @@
     "href": "proposal.html",
     "title": "Proposal title",
     "section": "",
-    "text": "if (!require(\"pacman\")) \n  install.packages(\"pacman\")\n# use this line for installing/loading\npacman::p_load(readr,\n               dplyr,\n               ggplot2,\n               scico,\n               here,\n               tidyverse,\n               ggrepel,\n               devtools,\n               ggridges,\n               dsbox,\n               fs,\n               palmerpenguins)\n#library(tidyverse)"
+    "text": "if (!require(\"pacman\")) \n  install.packages(\"pacman\")\n# use this line for installing/loading\npacman::p_load(readr,\n               dplyr,\n               ggplot2,\n               scico,\n               here,\n               tidyverse,\n               ggrepel,\n               devtools,\n               ggridges,\n               dsbox,\n               fs)\n#library(tidyverse)"
   },
   {
     "objectID": "proposal.html#dataset",
     "href": "proposal.html#dataset",
     "title": "Proposal title",
     "section": "Dataset",
-    "text": "Dataset\n\ncoffee_survey &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-05-14/coffee_survey.csv')\n\n\n#glimpse(coffee_survey)\n\nA brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.\nThe coffee survey was collected during a YouTube event called the “Great American Coffee Taste Test”. It has a total of 4042 observations (rows), and 57 variables (columns).\nI chose this data set because I am an avid coffee drinker and would like to know what other fellow coffee lovers like to drink, and if they spend as much money on coffee as I do. I also used to work at a local Mexican style coffee shop name Tierra Mia in the Los Angles area. Exploring this data set would just give me insight into the community that I would like to have.\nMake sure to load the data and use inline code for some of this information."
+    "text": "Dataset\n\ncoffee_survey &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-05-14/coffee_survey.csv')\n\n\n#glimpse(coffee_survey)\n\nA brief description of your dataset including its provenance, dimensions, etc. as well as the reason why you chose this dataset.\n##Dataset\n\nThe coffee survey was collected during a YouTube event called the “Great American Coffee Taste Test”. It has a total of 4042 observations (rows), and 57 variables (columns).\nI chose this data set because I am an avid coffee drinker and would like to know what other fellow coffee lovers like to drink, and if they spend as much money on coffee as I do. I also used to work at a local Mexican style coffee shop name Tierra Mia in the Los Angles area. Exploring this data set would just give me insight into the community that I would like to have."
   },
   {
     "objectID": "proposal.html#questions",
@@ -25,7 +25,7 @@
     "href": "proposal.html#analysis-plan",
     "title": "Proposal title",
     "section": "Analysis plan",
-    "text": "Analysis plan\n\nA plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).\n\nvariables: total_spend, age, favorite. Will have to create a count of total_spend variable per age group and count of favorite drinks per age group.\n\n\nTask List:\n\n\n\nTask Name\nStatus\nAssignee\nDue\nPriority\nSummary\n\n\n\n\nImport Data\ncompelte\nluis\n05/29\nLow\n\n\n\nExplore Data\nIn Progress\nluis\n06/01\nModerate\n\n\n\nQ1\nNot Started\nluis\n06/03\nHigh\n\n\n\nQ2\nNot Started\nluis\n06/05\nHigh\n\n\n\nWrite Up\nNot Started\nluis\n06/07\nHigh\n\n\n\nPresentation\nNot Started\nluis\n06/10\nHigh\n\n\n\nFinal Review\nNot Started\nluis\n06/15\nModerate"
+    "text": "Analysis plan\n\nA plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).\n\nThe variables I need to use are listed below along with the questions asked in the survey:\n\ntotal_spend: In total, much money do you typically spend on coffee in a month?\nfavorite: What is your favorite coffee drink?\nage: What is your age?\n\nWill have to create a count of total_spend variable per age group and count of favorite drinks per age group.\n\n\nTask List:\n\n\n\nTask Name\nStatus\nAssignee\nDue\nPriority\nSummary\n\n\n\n\nImport Data\ncompelte\nluis\n05/29\nLow\n\n\n\nExplore Data\nIn Progress\nluis\n06/01\nModerate\n\n\n\nQ1\nNot Started\nluis\n06/03\nHigh\n\n\n\nQ2\nNot Started\nluis\n06/05\nHigh\n\n\n\nWrite Up\nNot Started\nluis\n06/07\nHigh\n\n\n\nPresentation\nNot Started\nluis\n06/10\nHigh\n\n\n\nFinal Review\nNot Started\nluis\n06/15\nModerate"
   },
   {
     "objectID": "index.html",
