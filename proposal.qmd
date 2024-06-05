@@ -21,13 +21,14 @@ execute:
 
 ```{r}
 #| label: load-pkgs
-#| message: false
-
+#| warning: FALSE
+#| message: FALSE
+#| 
 if (!require("pacman")) 
   install.packages("pacman")
 # use this line for installing/loading
 pacman::p_load(readr,dplyr,ggplot2,scico,here,tidyverse,ggrepel,devtools,
-               ggridges,dsbox,fs)
+               ggridges,dsbox,fs,janitor)
 
 ```
 
@@ -41,6 +42,38 @@ pacman::p_load(readr,dplyr,ggplot2,scico,here,tidyverse,ggrepel,devtools,
 coffee_survey <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-05-14/coffee_survey.csv')
 
 glimpse(coffee_survey)
+
+coffee_survey |> 
+  colnames() |> 
+  cat(sep = "\n")
+
+coffee_survey <- coffee_survey|>
+  janitor::clean_names() 
+  
+unique(coffee_survey$age)
+ggplot(coffee_survey)+geom_bar(aes(age))+ 
+  coord_flip(clip = "off")+labs(title='age')
+unique(coffee_survey$favorite)
+ggplot(coffee_survey)+geom_bar(aes(favorite))+ 
+  coord_flip(clip = "off")+labs(title='favorite')
+unique(coffee_survey$gender)
+ggplot(coffee_survey)+geom_bar(aes(gender))+ 
+  coord_flip(clip = "off")+labs(title='gender')
+unique(coffee_survey$ethnicity_race)
+ggplot(coffee_survey)+geom_bar(aes(ethnicity_race))+ 
+  coord_flip(clip = "off")+labs(title='ethnicity_race')
+unique(coffee_survey$education_level)
+ggplot(coffee_survey)+geom_bar(aes(education_level))+ 
+  coord_flip(clip = "off")+labs(title='education_level')
+unique(coffee_survey$employment_status)
+ggplot(coffee_survey)+geom_bar(aes(employment_status))+ 
+  coord_flip(clip = "off")+labs(title='employment_status')
+unique(coffee_survey$total_spend)
+ggplot(coffee_survey)+geom_bar(aes(total_spend))+ 
+  coord_flip(clip = "off")+labs(title='total_spend')
+unique(coffee_survey$political_affiliation)
+ggplot(coffee_survey)+geom_bar(aes(political_affiliation))+ 
+  coord_flip(clip = "off")+labs(title='political_affiliation')
 ```
 
 ## Dataset Description
@@ -53,9 +86,9 @@ glimpse(coffee_survey)
 
 The two questions you want to answer.
 
-Q1: Which age group spends the most money on coffee per month?
+Q1: Which age group spends the most money on coffee per month? There are 7 age groups. 5 range from 18-65. One is \<18, and another is \>65. Effectively covering ages from all walks of life.
 
-Q2: What is the favorite kinds of coffee for each age group?
+Q2: What is the favorite kinds of coffee for each age group, gender, education level, employment status, and political affiliations, and ethnicity/race?
 
 ## Analysis plan
 
@@ -64,16 +97,21 @@ Q2: What is the favorite kinds of coffee for each age group?
     -   total_spend: In total, how much money do you typically spend on coffee in a month?
     -   favorite: What is your favorite coffee drink?
     -   age: What is your age?
+    -   employment_status
+    -   education_level
+    -   gender
+    -   political_affiliation
+    -   ethnicity_race
     -   Will have to create a count of total_spend variable per age group and count of favorite drinks per age group.
 
 Task List:
 
-| Task Name    | Status       | Assignee | Due   | Priority | Summary |
-|--------------|--------------|----------|-------|----------|---------|
-| Import Data  | compelte     | luis     | 05/29 | Low      |         |
-| Explore Data | In Progress  | luis     | 06/01 | Moderate |         |
-| Q1           | Not Started  | luis     | 06/03 | High     |         |
-| Q2           | Not Started  | luis     | 06/05 | High     |         |
-| Write Up     | Not Started  | luis     | 06/07 | High     |         |
-| Presentation | Not Started  | luis     | 06/10 | High     |         |
-| Final Review | Not Started  | luis     | 06/15 | Moderate |         |
+| Task Name    | Status      | Assignee | Due   | Priority | Summary                                                                               |
+|--------------|-------------|----------|-------|----------|---------------------------------------------------------------------------------------|
+| Import Data  | complete    | luis     | 05/29 | Low      | use read_csv to import data from the tidyTuesday github repo                          |
+| Explore Data | complete    | luis     | 06/01 | Moderate | plot counts for each of the categorical variables to get a feel for whats in the data |
+| Q1           | In Progress | luis     | 06/03 | High     |                                                                                       |
+| Q2           | In Progress | luis     | 06/05 | High     |                                                                                       |
+| Write Up     | Not Started | luis     | 06/07 | High     |                                                                                       |
+| Presentation | Not Started | luis     | 06/10 | High     |                                                                                       |
+| Final Review | Not Started | luis     | 06/15 | Moderate |                                                                                       |
