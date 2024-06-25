@@ -11,96 +11,96 @@
     "href": "proposal.html#dataset",
     "title": "Coffee Survey Proposal",
     "section": "Dataset",
-    "text": "Dataset\n\ncoffee_survey &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-05-14/coffee_survey.csv')\n\nglimpse(coffee_survey)\n\nRows: 4,042\nColumns: 57\n$ submission_id                &lt;chr&gt; \"gMR29l\", \"BkPN0e\", \"W5G8jj\", \"4xWgGr\", \"…\n$ age                          &lt;chr&gt; \"18-24 years old\", \"25-34 years old\", \"25…\n$ cups                         &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, \"Less tha…\n$ where_drink                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, \"At a cafe, At th…\n$ brew                         &lt;chr&gt; NA, \"Pod/capsule machine (e.g. Keurig/Nes…\n$ brew_other                   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ purchase                     &lt;chr&gt; NA, NA, NA, NA, NA, NA, \"National chain (…\n$ purchase_other               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ favorite                     &lt;chr&gt; \"Regular drip coffee\", \"Iced coffee\", \"Re…\n$ favorite_specify             &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ additions                    &lt;chr&gt; \"No - just black\", \"Sugar or sweetener, N…\n$ additions_other              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ dairy                        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ sweetener                    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ style                        &lt;chr&gt; \"Complex\", \"Light\", \"Complex\", \"Complex\",…\n$ strength                     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ roast_level                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ caffeine                     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ expertise                    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ coffee_a_bitterness          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_a_acidity             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_a_personal_preference &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_a_notes               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ coffee_b_bitterness          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_b_acidity             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_b_personal_preference &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_b_notes               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ coffee_c_bitterness          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_c_acidity             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_c_personal_preference &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_c_notes               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ coffee_d_bitterness          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_d_acidity             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_d_personal_preference &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_d_notes               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ prefer_abc                   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ prefer_ad                    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ prefer_overall               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ wfh                          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ total_spend                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ why_drink                    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ why_drink_other              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ taste                        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ know_source                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ most_paid                    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ most_willing                 &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ value_cafe                   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ spent_equipment              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ value_equipment              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ gender                       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ gender_specify               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ education_level              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ ethnicity_race               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ ethnicity_race_specify       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ employment_status            &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ number_children              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ political_affiliation        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n\ncoffee_survey |&gt; \n  colnames() |&gt; \n  cat(sep = \"\\n\")\n\nsubmission_id\nage\ncups\nwhere_drink\nbrew\nbrew_other\npurchase\npurchase_other\nfavorite\nfavorite_specify\nadditions\nadditions_other\ndairy\nsweetener\nstyle\nstrength\nroast_level\ncaffeine\nexpertise\ncoffee_a_bitterness\ncoffee_a_acidity\ncoffee_a_personal_preference\ncoffee_a_notes\ncoffee_b_bitterness\ncoffee_b_acidity\ncoffee_b_personal_preference\ncoffee_b_notes\ncoffee_c_bitterness\ncoffee_c_acidity\ncoffee_c_personal_preference\ncoffee_c_notes\ncoffee_d_bitterness\ncoffee_d_acidity\ncoffee_d_personal_preference\ncoffee_d_notes\nprefer_abc\nprefer_ad\nprefer_overall\nwfh\ntotal_spend\nwhy_drink\nwhy_drink_other\ntaste\nknow_source\nmost_paid\nmost_willing\nvalue_cafe\nspent_equipment\nvalue_equipment\ngender\ngender_specify\neducation_level\nethnicity_race\nethnicity_race_specify\nemployment_status\nnumber_children\npolitical_affiliation\n\ncoffee_survey &lt;- coffee_survey|&gt;\n  janitor::clean_names() \n  \nunique(coffee_survey$age)\n\n[1] \"18-24 years old\" \"25-34 years old\" \"35-44 years old\" \"55-64 years old\"\n[5] NA                \"&lt;18 years old\"   \"&gt;65 years old\"   \"45-54 years old\"\n\nggplot(coffee_survey)+geom_bar(aes(age))+ \n  coord_flip(clip = \"off\")+labs(title='age')\n\n\n\n\n\n\n\nunique(coffee_survey$favorite)\n\n [1] \"Regular drip coffee\"              \"Iced coffee\"                     \n [3] \"Latte\"                            \"Pourover\"                        \n [5] NA                                 \"Other\"                           \n [7] \"Cortado\"                          \"Cappuccino\"                      \n [9] \"Espresso\"                         \"Cold brew\"                       \n[11] \"Americano\"                        \"Mocha\"                           \n[13] \"Blended drink (e.g. Frappuccino)\"\n\nggplot(coffee_survey)+geom_bar(aes(favorite))+ \n  coord_flip(clip = \"off\")+labs(title='favorite')\n\n\n\n\n\n\n\nunique(coffee_survey$gender)\n\n[1] NA                       \"Other (please specify)\" \"Female\"                \n[4] \"Male\"                   \"Non-binary\"             \"Prefer not to say\"     \n\nggplot(coffee_survey)+geom_bar(aes(gender))+ \n  coord_flip(clip = \"off\")+labs(title='gender')\n\n\n\n\n\n\n\nunique(coffee_survey$ethnicity_race)\n\n[1] NA                              \"Other (please specify)\"       \n[3] \"White/Caucasian\"               \"Asian/Pacific Islander\"       \n[5] \"Black/African American\"        \"Hispanic/Latino\"              \n[7] \"Native American/Alaska Native\"\n\nggplot(coffee_survey)+geom_bar(aes(ethnicity_race))+ \n  coord_flip(clip = \"off\")+labs(title='ethnicity_race')\n\n\n\n\n\n\n\nunique(coffee_survey$education_level)\n\n[1] NA                                   \"Bachelor's degree\"                 \n[3] \"Master's degree\"                    \"Less than high school\"             \n[5] \"Some college or associate's degree\" \"Doctorate or professional degree\"  \n[7] \"High school graduate\"              \n\nggplot(coffee_survey)+geom_bar(aes(education_level))+ \n  coord_flip(clip = \"off\")+labs(title='education_level')\n\n\n\n\n\n\n\nunique(coffee_survey$employment_status)\n\n[1] NA                   \"Employed full-time\" \"Unemployed\"        \n[4] \"Student\"            \"Employed part-time\" \"Retired\"           \n[7] \"Homemaker\"         \n\nggplot(coffee_survey)+geom_bar(aes(employment_status))+ \n  coord_flip(clip = \"off\")+labs(title='employment_status')\n\n\n\n\n\n\n\nunique(coffee_survey$total_spend)\n\n[1] NA         \"&gt;$100\"    \"$40-$60\"  \"$20-$40\"  \"$60-$80\"  \"&lt;$20\"     \"$80-$100\"\n\nggplot(coffee_survey)+geom_bar(aes(total_spend))+ \n  coord_flip(clip = \"off\")+labs(title='total_spend')\n\n\n\n\n\n\n\nunique(coffee_survey$political_affiliation)\n\n[1] NA               \"Democrat\"       \"No affiliation\" \"Independent\"   \n[5] \"Republican\"    \n\nggplot(coffee_survey)+geom_bar(aes(political_affiliation))+ \n  coord_flip(clip = \"off\")+labs(title='political_affiliation')"
+    "text": "Dataset\n\ncoffee_survey &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-05-14/coffee_survey.csv')\n\nglimpse(coffee_survey)\n\nRows: 4,042\nColumns: 57\n$ submission_id                &lt;chr&gt; \"gMR29l\", \"BkPN0e\", \"W5G8jj\", \"4xWgGr\", \"…\n$ age                          &lt;chr&gt; \"18-24 years old\", \"25-34 years old\", \"25…\n$ cups                         &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, \"Less tha…\n$ where_drink                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, \"At a cafe, At th…\n$ brew                         &lt;chr&gt; NA, \"Pod/capsule machine (e.g. Keurig/Nes…\n$ brew_other                   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ purchase                     &lt;chr&gt; NA, NA, NA, NA, NA, NA, \"National chain (…\n$ purchase_other               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ favorite                     &lt;chr&gt; \"Regular drip coffee\", \"Iced coffee\", \"Re…\n$ favorite_specify             &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ additions                    &lt;chr&gt; \"No - just black\", \"Sugar or sweetener, N…\n$ additions_other              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ dairy                        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ sweetener                    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ style                        &lt;chr&gt; \"Complex\", \"Light\", \"Complex\", \"Complex\",…\n$ strength                     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ roast_level                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ caffeine                     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ expertise                    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ coffee_a_bitterness          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_a_acidity             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_a_personal_preference &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_a_notes               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ coffee_b_bitterness          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_b_acidity             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_b_personal_preference &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_b_notes               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ coffee_c_bitterness          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_c_acidity             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_c_personal_preference &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_c_notes               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ coffee_d_bitterness          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_d_acidity             &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_d_personal_preference &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, 4, NA, NA…\n$ coffee_d_notes               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ prefer_abc                   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ prefer_ad                    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ prefer_overall               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ wfh                          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ total_spend                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ why_drink                    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ why_drink_other              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ taste                        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ know_source                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ most_paid                    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ most_willing                 &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ value_cafe                   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ spent_equipment              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ value_equipment              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ gender                       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ gender_specify               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ education_level              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ ethnicity_race               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ ethnicity_race_specify       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ employment_status            &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ number_children              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ political_affiliation        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n\ncoffee_survey |&gt; \n  colnames() |&gt; \n  cat(sep = \"\\n\")\n\nsubmission_id\nage\ncups\nwhere_drink\nbrew\nbrew_other\npurchase\npurchase_other\nfavorite\nfavorite_specify\nadditions\nadditions_other\ndairy\nsweetener\nstyle\nstrength\nroast_level\ncaffeine\nexpertise\ncoffee_a_bitterness\ncoffee_a_acidity\ncoffee_a_personal_preference\ncoffee_a_notes\ncoffee_b_bitterness\ncoffee_b_acidity\ncoffee_b_personal_preference\ncoffee_b_notes\ncoffee_c_bitterness\ncoffee_c_acidity\ncoffee_c_personal_preference\ncoffee_c_notes\ncoffee_d_bitterness\ncoffee_d_acidity\ncoffee_d_personal_preference\ncoffee_d_notes\nprefer_abc\nprefer_ad\nprefer_overall\nwfh\ntotal_spend\nwhy_drink\nwhy_drink_other\ntaste\nknow_source\nmost_paid\nmost_willing\nvalue_cafe\nspent_equipment\nvalue_equipment\ngender\ngender_specify\neducation_level\nethnicity_race\nethnicity_race_specify\nemployment_status\nnumber_children\npolitical_affiliation\n\ncoffee_survey &lt;- coffee_survey|&gt;\n  janitor::clean_names() \n  \nunique(coffee_survey$age)\n\n[1] \"18-24 years old\" \"25-34 years old\" \"35-44 years old\" \"55-64 years old\"\n[5] NA                \"&lt;18 years old\"   \"&gt;65 years old\"   \"45-54 years old\"\n\nggplot(coffee_survey)+geom_bar(aes(age,fill=age))+ \n  coord_flip(clip = \"off\")+labs(title='age')\n\n\n\n\n\n\n\nunique(coffee_survey$favorite)\n\n [1] \"Regular drip coffee\"              \"Iced coffee\"                     \n [3] \"Latte\"                            \"Pourover\"                        \n [5] NA                                 \"Other\"                           \n [7] \"Cortado\"                          \"Cappuccino\"                      \n [9] \"Espresso\"                         \"Cold brew\"                       \n[11] \"Americano\"                        \"Mocha\"                           \n[13] \"Blended drink (e.g. Frappuccino)\"\n\nggplot(coffee_survey)+geom_bar(aes(favorite,fill=favorite))+ \n  coord_flip(clip = \"off\")+labs(title='favorite')\n\n\n\n\n\n\n\nunique(coffee_survey$gender)\n\n[1] NA                       \"Other (please specify)\" \"Female\"                \n[4] \"Male\"                   \"Non-binary\"             \"Prefer not to say\"     \n\nggplot(coffee_survey)+geom_bar(aes(gender,fill=gender))+ \n  coord_flip(clip = \"off\")+labs(title='gender')\n\n\n\n\n\n\n\nunique(coffee_survey$ethnicity_race)\n\n[1] NA                              \"Other (please specify)\"       \n[3] \"White/Caucasian\"               \"Asian/Pacific Islander\"       \n[5] \"Black/African American\"        \"Hispanic/Latino\"              \n[7] \"Native American/Alaska Native\"\n\nggplot(coffee_survey)+geom_bar(aes(ethnicity_race))+ \n  coord_flip(clip = \"off\")+labs(title='ethnicity_race')\n\n\n\n\n\n\n\nunique(coffee_survey$education_level)\n\n[1] NA                                   \"Bachelor's degree\"                 \n[3] \"Master's degree\"                    \"Less than high school\"             \n[5] \"Some college or associate's degree\" \"Doctorate or professional degree\"  \n[7] \"High school graduate\"              \n\nggplot(coffee_survey)+geom_bar(aes(education_level,fill=education_level))+ \n  coord_flip(clip = \"off\")+labs(title='education_level')\n\n\n\n\n\n\n\nunique(coffee_survey$employment_status)\n\n[1] NA                   \"Employed full-time\" \"Unemployed\"        \n[4] \"Student\"            \"Employed part-time\" \"Retired\"           \n[7] \"Homemaker\"         \n\nggplot(coffee_survey)+geom_bar(aes(employment_status))+ \n  coord_flip(clip = \"off\")+labs(title='employment_status')\n\n\n\n\n\n\n\nunique(coffee_survey$total_spend)\n\n[1] NA         \"&gt;$100\"    \"$40-$60\"  \"$20-$40\"  \"$60-$80\"  \"&lt;$20\"     \"$80-$100\"\n\nggplot(coffee_survey)+geom_bar(aes(total_spend))+ \n  coord_flip(clip = \"off\")+labs(title='total_spend')\n\n\n\n\n\n\n\nunique(coffee_survey$political_affiliation)\n\n[1] NA               \"Democrat\"       \"No affiliation\" \"Independent\"   \n[5] \"Republican\"    \n\nggplot(coffee_survey)+geom_bar(aes(political_affiliation))+ \n  coord_flip(clip = \"off\")+labs(title='political_affiliation')"
   },
   {
     "objectID": "proposal.html#questions",
     "href": "proposal.html#questions",
     "title": "Coffee Survey Proposal",
     "section": "Questions",
-    "text": "Questions\nThe two questions you want to answer.\nQ1: Which age group spends the most money on coffee per month? There are 7 age groups. 5 range from 18-65. One is &lt;18, and another is &gt;65. Effectively covering ages from all walks of life.\nQ2: What is the favorite kinds of coffee for each age group, gender, education level, employment status, and political affiliations, and ethnicity/race?"
+    "text": "Questions\nThe two questions you want to answer.\nQ1: Which age group spends the most money on coffee per month? There are 7 age groups. 5 range from 18-65. One is &lt;18, and another is &gt;65. Effectively covering ages from all walks of life.\nQ2: What is the favorite kinds of coffee for each group: gender, education level, employment status, and political affiliations, and ethnicity/race?"
   },
   {
     "objectID": "proposal.html#analysis-plan",
     "href": "proposal.html#analysis-plan",
     "title": "Coffee Survey Proposal",
     "section": "Analysis plan",
-    "text": "Analysis plan\n\nI am planning on creating either a heat map like plot of the with count as the gradient or stacked bar charts\nThe variables I need to use are listed below along with the question that was asked to participants in the survey:\n\ntotal_spend: In total, how much money do you typically spend on coffee in a month?\nfavorite: What is your favorite coffee drink?\nage: What is your age?\nemployment_status\neducation_level\ngender\npolitical_affiliation\nethnicity_race\nWill have to create a count of total_spend variable per age group and count of favorite drinks per age group.\n\n\nTask List:\n\n\n\n\n\n\n\n\n\n\n\nTask Name\nStatus\nAssignee\nDue\nPriority\nSummary\n\n\n\n\nImport Data\ncomplete\nluis\n05/29\nLow\nuse read_csv to import data from the tidyTuesday github repo\n\n\nExplore Data\ncomplete\nluis\n06/01\nModerate\nplot counts for each of the categorical variables to get a feel for whats in the data\n\n\nQ1\nIn Progress\nluis\n06/03\nHigh\n\n\n\nQ2\nIn Progress\nluis\n06/05\nHigh\n\n\n\nWrite Up\nNot Started\nluis\n06/07\nHigh\n\n\n\nPresentation\nNot Started\nluis\n06/10\nHigh\n\n\n\nFinal Review\nNot Started\nluis\n06/15\nModerate"
+    "text": "Analysis plan\n\nI am planning on creating either a heat map like plot of the with count as the gradient or stacked bar charts\nThe variables I need to use are listed below along with the question that was asked to participants in the survey:\n\ntotal_spend: In total, how much money do you typically spend on coffee in a month?\nfavorite: What is your favorite coffee drink?\nage: What is your age?\nemployment_status\neducation_level\ngender\npolitical_affiliation\nethnicity_race\nWill have to create a count of total_spend variable per age group and count of favorite drinks per age group.\n\n\nTask List:\n\n\n\n\n\n\n\n\n\n\n\nTask Name\nStatus\nAssignee\nDue\nPriority\nSummary\n\n\n\n\nImport Data\ncomplete\nluis\n05/29\nLow\nuse read_csv to import data from the tidyTuesday github repo\n\n\nExplore Data\ncomplete\nluis\n06/01\nModerate\nplot counts for each of the categorical variables to get a feel for whats in the data\n\n\nQ1\nComplete\nluis\n06/03\nHigh\nhow much money does each age group spend on coffee?\n\n\nQ2\nComplete\nluis\n06/05\nHigh\nFavorite coffee?\n\n\nWrite Up\nComplete\nluis\n06/07\nHigh\n\n\n\nPresentation\nComplete\nluis\n06/10\nHigh\n\n\n\nFinal Review\nComplete\nluis\n06/15\nModerate"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Project Title",
+    "title": "Great American Coffee Taste Test",
     "section": "",
-    "text": "Add project abstract here."
+    "text": "submission_id\nage\ncups\nwhere_drink\nbrew\nbrew_other\npurchase\npurchase_other\nfavorite\nfavorite_specify\nadditions\nadditions_other\ndairy\nsweetener\nstyle\nstrength\nroast_level\ncaffeine\nexpertise\ncoffee_a_bitterness\ncoffee_a_acidity\ncoffee_a_personal_preference\ncoffee_a_notes\ncoffee_b_bitterness\ncoffee_b_acidity\ncoffee_b_personal_preference\ncoffee_b_notes\ncoffee_c_bitterness\ncoffee_c_acidity\ncoffee_c_personal_preference\ncoffee_c_notes\ncoffee_d_bitterness\ncoffee_d_acidity\ncoffee_d_personal_preference\ncoffee_d_notes\nprefer_abc\nprefer_ad\nprefer_overall\nwfh\ntotal_spend\nwhy_drink\nwhy_drink_other\ntaste\nknow_source\nmost_paid\nmost_willing\nvalue_cafe\nspent_equipment\nvalue_equipment\ngender\ngender_specify\neducation_level\nethnicity_race\nethnicity_race_specify\nemployment_status\nnumber_children\npolitical_affiliation"
   },
   {
     "objectID": "index.html#abstract",
     "href": "index.html#abstract",
-    "title": "Project Title",
+    "title": "Coffee Survey",
     "section": "",
-    "text": "Add project abstract here."
+    "text": "Add project abstract here.\n\n\nsubmission_id\nage\ncups\nwhere_drink\nbrew\nbrew_other\npurchase\npurchase_other\nfavorite\nfavorite_specify\nadditions\nadditions_other\ndairy\nsweetener\nstyle\nstrength\nroast_level\ncaffeine\nexpertise\ncoffee_a_bitterness\ncoffee_a_acidity\ncoffee_a_personal_preference\ncoffee_a_notes\ncoffee_b_bitterness\ncoffee_b_acidity\ncoffee_b_personal_preference\ncoffee_b_notes\ncoffee_c_bitterness\ncoffee_c_acidity\ncoffee_c_personal_preference\ncoffee_c_notes\ncoffee_d_bitterness\ncoffee_d_acidity\ncoffee_d_personal_preference\ncoffee_d_notes\nprefer_abc\nprefer_ad\nprefer_overall\nwfh\ntotal_spend\nwhy_drink\nwhy_drink_other\ntaste\nknow_source\nmost_paid\nmost_willing\nvalue_cafe\nspent_equipment\nvalue_equipment\ngender\ngender_specify\neducation_level\nethnicity_race\nethnicity_race_specify\nemployment_status\nnumber_children\npolitical_affiliation\n\n\n[1] \"18-24\" \"25-34\" \"35-44\" \"55-64\" NA      \"&lt;18\"   \"&gt;65\"  \n[8] \"45-54\""
   },
   {
     "objectID": "presentation.html#quarto",
     "href": "presentation.html#quarto",
-    "title": "Project title",
+    "title": "Coffee Survey",
     "section": "Quarto",
     "text": "Quarto\n\nThe presentation is created using the Quarto CLI\n## sets the start of a new slide"
   },
   {
     "objectID": "presentation.html#layouts",
     "href": "presentation.html#layouts",
-    "title": "Project title",
+    "title": "Coffee Survey",
     "section": "Layouts",
     "text": "Layouts\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis\n\nAnd add footnotes"
   },
   {
     "objectID": "presentation.html#code",
     "href": "presentation.html#code",
-    "title": "Project title",
+    "title": "Coffee Survey",
     "section": "Code",
-    "text": "Code\n\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
+    "text": "Code"
   },
   {
     "objectID": "presentation.html#plots",
     "href": "presentation.html#plots",
-    "title": "Project title",
+    "title": "Coffee Survey",
     "section": "Plots",
     "text": "Plots"
   },
   {
     "objectID": "presentation.html#plot-and-text",
     "href": "presentation.html#plot-and-text",
-    "title": "Project title",
+    "title": "Coffee Survey",
     "section": "Plot and text",
     "text": "Plot and text\n\n\n\nSome text\ngoes here"
   },
   {
     "objectID": "presentation.html#tables",
     "href": "presentation.html#tables",
-    "title": "Project title",
+    "title": "Coffee Survey",
     "section": "Tables",
-    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale"
+    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,"
   },
   {
     "objectID": "presentation.html#images",
     "href": "presentation.html#images",
-    "title": "Project title",
+    "title": "Coffee Survey",
     "section": "Images",
     "text": "Images\n\nImage credit: Danielle Navarro, Percolate."
   },
   {
     "objectID": "presentation.html#math-expressions",
     "href": "presentation.html#math-expressions",
-    "title": "Project title",
+    "title": "Coffee Survey",
     "section": "Math Expressions",
     "text": "Math Expressions\nYou can write LaTeX math expressions inside a pair of dollar signs, e.g. $\\alpha+\\beta$ renders \\(\\alpha + \\beta\\). You can use the display style with double dollar signs:\n$$\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i$$\n\\[\n\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i\n\\]\nLimitations:\n\nThe source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting $$ must appear in the very beginning of a line, followed immediately by a non-space character, and the ending $$ must be at the end of a line, led by a non-space character;\nThere should not be spaces after the opening $ or before the closing $."
   },
   {
     "objectID": "presentation.html#feeling-adventurous",
     "href": "presentation.html#feeling-adventurous",
-    "title": "Project title",
+    "title": "Coffee Survey",
     "section": "Feeling adventurous?",
     "text": "Feeling adventurous?\n\nYou are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.\nBut some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs."
   },
@@ -109,14 +109,14 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "This project was developed by [Team Name] For INFO 526 - Data Analysis and Visualization at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.\n\nTeam member 1: One sentence description of Team member 1 (e.g., year, major, etc.).\nTeam member 2: One sentence description of Team member 2 (e.g., year, major, etc.).\nTeam member 3: One sentence description of Team member 3 (e.g., year, major, etc.).\nTeam member 4: One sentence description of Team member 4 (e.g., year, major, etc.)."
+    "text": "This project was developed by Stats for Stacks For INFO 526 - Data Analysis and Visualization at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.\n\nTeam member 1: Luis Estrada, 2nd year, Electrical and Computer Engineering, Online Program."
   },
   {
     "objectID": "presentation.html",
     "href": "presentation.html",
-    "title": "Project title",
+    "title": "Coffee Survey",
     "section": "",
-    "text": "The presentation is created using the Quarto CLI\n## sets the start of a new slide\n\n\n\n\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis\n\n\n\n\n\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome text\ngoes here"
+    "text": "The coffee survey was collected from people participated in a YouTube event called the “Great American Coffee Taste Test”.\n\nThis event was primairly to taste test 4 different types of coffee\n\nI chose this data set because I am an avid coffee drinker and exploring this data set would give me insight into the community that I would like to have"
   },
   {
     "objectID": "presentation.html#footnotes",
@@ -131,5 +131,250 @@
     "title": "Coffee Survey Proposal",
     "section": "Dataset Description",
     "text": "Dataset Description\n\nThe coffee survey was collected from people participated in a YouTube event called the “Great American Coffee Taste Test”. This event was primairly to taste test 4 different types of coffee, while the entire survey collected a wide variety of information. It has a total of 4042 participants/observations (rows), and 57 variables (columns).\nI chose this data set because I am an avid coffee drinker and would like to know what other fellow coffee lovers like to drink, and if they spend as much money on coffee as I do. I also used to work at a local Mexican style coffee shop named Tierra Mia in the Los Angles area. Exploring this data set would just give me insight into the community that I would like to have."
+  },
+  {
+    "objectID": "presentation_copy.html",
+    "href": "presentation_copy.html",
+    "title": "Project title",
+    "section": "",
+    "text": "The presentation is created using the Quarto CLI\n## sets the start of a new slide\n\n\n\n\nYou can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis\n\n\n\n\n\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\n\n\n\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSome text\ngoes here"
+  },
+  {
+    "objectID": "presentation_copy.html#quarto",
+    "href": "presentation_copy.html#quarto",
+    "title": "Project title",
+    "section": "",
+    "text": "The presentation is created using the Quarto CLI\n## sets the start of a new slide"
+  },
+  {
+    "objectID": "presentation_copy.html#layouts",
+    "href": "presentation_copy.html#layouts",
+    "title": "Project title",
+    "section": "",
+    "text": "You can use plain text\n\n\n\nor bullet points1\n\n\nor in two columns\n\n\n\nlike\nthis"
+  },
+  {
+    "objectID": "presentation_copy.html#code",
+    "href": "presentation_copy.html#code",
+    "title": "Project title",
+    "section": "",
+    "text": "# A tibble: 2 × 5\n  term        estimate std.error statistic       p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n1 (Intercept)   25.3      3.08        8.22 0.00000000358\n2 speed         -0.116    0.0642     -1.81 0.0806       \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    0.0983        0.0682  5.82      3.27  0.0806     1  -101.  207.  212.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
+  },
+  {
+    "objectID": "presentation_copy.html#plots",
+    "href": "presentation_copy.html#plots",
+    "title": "Project title",
+    "section": "",
+    "text": "Warning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`)."
+  },
+  {
+    "objectID": "presentation_copy.html#plot-and-text",
+    "href": "presentation_copy.html#plot-and-text",
+    "title": "Project title",
+    "section": "",
+    "text": "Some text\ngoes here"
+  },
+  {
+    "objectID": "presentation_copy.html#tables",
+    "href": "presentation_copy.html#tables",
+    "title": "Project title",
+    "section": "Tables",
+    "text": "Tables\nIf you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale"
+  },
+  {
+    "objectID": "presentation_copy.html#images",
+    "href": "presentation_copy.html#images",
+    "title": "Project title",
+    "section": "Images",
+    "text": "Images\n\n\n\nImage credit: Danielle Navarro, Percolate."
+  },
+  {
+    "objectID": "presentation_copy.html#math-expressions",
+    "href": "presentation_copy.html#math-expressions",
+    "title": "Project title",
+    "section": "Math Expressions",
+    "text": "Math Expressions\nYou can write LaTeX math expressions inside a pair of dollar signs, e.g. $\\alpha+\\beta$ renders \\(\\alpha + \\beta\\). You can use the display style with double dollar signs:\n$$\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i$$\n\\[\n\\bar{X}=\\frac{1}{n}\\sum_{i=1}^nX_i\n\\]\nLimitations:\n\nThe source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting $$ must appear in the very beginning of a line, followed immediately by a non-space character, and the ending $$ must be at the end of a line, led by a non-space character;\nThere should not be spaces after the opening $ or before the closing $."
+  },
+  {
+    "objectID": "presentation_copy.html#feeling-adventurous",
+    "href": "presentation_copy.html#feeling-adventurous",
+    "title": "Project title",
+    "section": "Feeling adventurous?",
+    "text": "Feeling adventurous?\n\nYou are welcomed to use the default styling of the slides. In fact, that’s what I expect majority of you will do. You will differentiate yourself with the content of your presentation.\nBut some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs."
+  },
+  {
+    "objectID": "presentation_copy.html#footnotes",
+    "href": "presentation_copy.html#footnotes",
+    "title": "Project title",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAnd add footnotes↩︎"
+  },
+  {
+    "objectID": "presentation.html#test",
+    "href": "presentation.html#test",
+    "title": "Coffee Survey",
+    "section": "Test",
+    "text": "Test"
+  },
+  {
+    "objectID": "presentation.html#introduction-and-motivation",
+    "href": "presentation.html#introduction-and-motivation",
+    "title": "Great American Coffee Taste Test",
+    "section": "Introduction and Motivation",
+    "text": "Introduction and Motivation\n\nThe coffee survey was collected from people participated in a YouTube event called the “Great American Coffee Taste Test”.\n\nThis event was primairly to taste test 4 different types of coffee\n\nI chose this data set because I am an avid coffee drinker and exploring this data set would give me insight into the community that I would like to have"
+  },
+  {
+    "objectID": "presentation.html#the-data",
+    "href": "presentation.html#the-data",
+    "title": "Great American Coffee Taste Test",
+    "section": "The Data",
+    "text": "The Data\n\nThe entire survey collected a wide variety of information.\n\nThis includes information ranging from favorite type of coffee, where you like to drink coffee, how much money you spend, education level, political affiliation etc…\n\nConsist of 4042 participants/observations (rows), and 57 variables (columns) worth of data."
+  },
+  {
+    "objectID": "presentation.html#main-questions",
+    "href": "presentation.html#main-questions",
+    "title": "Great American Coffee Taste Test",
+    "section": "Main Questions",
+    "text": "Main Questions\nThe two main questions I want to explore in this data set are the following\n\nStarted as: Which age group spends the most money on coffee per month?\n\nTurned into: How much money does each age group spend on coffee?\n\nWhat is the favorite kinds of coffee for each group: gender, education level, employment status, and political affiliations, and ethnicity/race?"
+  },
+  {
+    "objectID": "presentation.html#visualization-1",
+    "href": "presentation.html#visualization-1",
+    "title": "Coffee Survey",
+    "section": "Visualization 1",
+    "text": "Visualization 1\nThis is plot 1"
+  },
+  {
+    "objectID": "presentation.html#visualization-2",
+    "href": "presentation.html#visualization-2",
+    "title": "Coffee Survey",
+    "section": "Visualization 2",
+    "text": "Visualization 2\nThis is plot 2"
+  },
+  {
+    "objectID": "presentation.html#conclusions",
+    "href": "presentation.html#conclusions",
+    "title": "Great American Coffee Taste Test",
+    "section": "Conclusions ",
+    "text": "Conclusions \n\nAccross all age groups, most people spend between 20-60 dollars on coffee per month\nMost people drink regular drip coffee, pour overs, or lattes.\n\nSome specific groups like cappuccinos and espresso as well\n\n\nWith all of the information in the survey, there are many other ways to slice and dice the data. Many other valuable conclusions can likely be drawn"
+  },
+  {
+    "objectID": "presentation.html#visualization-1-money-spent-on-coffee-by-age-group",
+    "href": "presentation.html#visualization-1-money-spent-on-coffee-by-age-group",
+    "title": "Coffee Survey",
+    "section": "Visualization 1: Money spent on coffee by age group",
+    "text": "Visualization 1: Money spent on coffee by age group"
+  },
+  {
+    "objectID": "presentation.html#visualization-2-favorite-type-of-coffee-a-quick-look",
+    "href": "presentation.html#visualization-2-favorite-type-of-coffee-a-quick-look",
+    "title": "Coffee Survey",
+    "section": "Visualization 2: Favorite type of coffee: A quick look",
+    "text": "Visualization 2: Favorite type of coffee: A quick look"
+  },
+  {
+    "objectID": "presentation.html#visualization-1-money-spent-on-coffee-by-age-group-12",
+    "href": "presentation.html#visualization-1-money-spent-on-coffee-by-age-group-12",
+    "title": "Great American Coffee Taste Test",
+    "section": "Visualization 1: Money spent on coffee by age group (1/2)",
+    "text": "Visualization 1: Money spent on coffee by age group (1/2)"
+  },
+  {
+    "objectID": "presentation.html#visualization-1---money-spent-on-coffee-by-age-group-22",
+    "href": "presentation.html#visualization-1---money-spent-on-coffee-by-age-group-22",
+    "title": "Great American Coffee Taste Test",
+    "section": "Visualization 1 - Money spent on coffee by age group (2/2)",
+    "text": "Visualization 1 - Money spent on coffee by age group (2/2)\n\nAt face value, the youngest age group has the highest percentage of people that spend &gt;$100 per month. This subgroup also has the smallest number of total entries, so its likely just outlier data.\nThereafter, the trend appears to be that the older folks get the more they spend on coffee untill about the 55-64 year age group. Accross all groups the most people spend between $20-$60 on coffee per month."
+  },
+  {
+    "objectID": "presentation.html#visualization-2---favorite-type-of-coffee-a-quick-look-12",
+    "href": "presentation.html#visualization-2---favorite-type-of-coffee-a-quick-look-12",
+    "title": "Great American Coffee Taste Test",
+    "section": "Visualization 2 - Favorite type of coffee: A quick look (1/2)",
+    "text": "Visualization 2 - Favorite type of coffee: A quick look (1/2)"
+  },
+  {
+    "objectID": "presentation.html#visualization-2---favorite-type-of-coffee-a-quick-look-22",
+    "href": "presentation.html#visualization-2---favorite-type-of-coffee-a-quick-look-22",
+    "title": "Great American Coffee Taste Test",
+    "section": "Visualization 2 - Favorite type of coffee: A quick look (2/2)",
+    "text": "Visualization 2 - Favorite type of coffee: A quick look (2/2)\n\nMost people, regardless of education level, employment status, ethincity, Gender or political affiliation drink regular drip coffee, pour overs, or lattes.\n\nA few specific groups have cappuccinos and espresso as a favorite drink."
+  },
+  {
+    "objectID": "presentation.html#data-exploration-1---age",
+    "href": "presentation.html#data-exploration-1---age",
+    "title": "Great American Coffee Taste Test",
+    "section": "Data Exploration #1 - Age",
+    "text": "Data Exploration #1 - Age"
+  },
+  {
+    "objectID": "presentation.html#data-exploration-2---favorite-coffee",
+    "href": "presentation.html#data-exploration-2---favorite-coffee",
+    "title": "Great American Coffee Taste Test",
+    "section": "Data Exploration #2 - Favorite Coffee",
+    "text": "Data Exploration #2 - Favorite Coffee"
+  },
+  {
+    "objectID": "presentation.html#data-exploration-3---education-level",
+    "href": "presentation.html#data-exploration-3---education-level",
+    "title": "Great American Coffee Taste Test",
+    "section": "Data Exploration #3 - Education Level",
+    "text": "Data Exploration #3 - Education Level"
+  },
+  {
+    "objectID": "presentation.html#data-exploration-4---gender",
+    "href": "presentation.html#data-exploration-4---gender",
+    "title": "Great American Coffee Taste Test",
+    "section": "Data Exploration #4 - Gender",
+    "text": "Data Exploration #4 - Gender"
+  },
+  {
+    "objectID": "presentation.html#data-exploration-5---employment-status",
+    "href": "presentation.html#data-exploration-5---employment-status",
+    "title": "Great American Coffee Taste Test",
+    "section": "Data Exploration #5 - Employment Status",
+    "text": "Data Exploration #5 - Employment Status"
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Great American Coffee Taste Test",
+    "section": "Introduction",
+    "text": "Introduction\nThe coffee survey was collected from people that participated in a YouTube event called the “Great American Coffee Taste Test”. This event was primairly to taste test 4 different types of coffee, while the entire survey collected a wide variety of information. It has a total of 4042 participants/observations (rows), and 57 variables (columns).\nBased on the data exploration done during the proposal, the demographics are of people between the ages of 18-64 years, with bachelors degrees, male, full time employees, and white/Caucasian ethnicity. This is worth noting in my mind, to try and understand how representative the data is of the whole population at large."
+  },
+  {
+    "objectID": "index.html#question-1",
+    "href": "index.html#question-1",
+    "title": "Coffee Survey",
+    "section": "Question 1",
+    "text": "Question 1\nIntro:\nApproach:\nAnalysis:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscussion:"
+  },
+  {
+    "objectID": "index.html#question-2",
+    "href": "index.html#question-2",
+    "title": "Coffee Survey",
+    "section": "Question 2",
+    "text": "Question 2\nIntro:\nApproach:\nAnalysis:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscussion:"
+  },
+  {
+    "objectID": "index.html#question-1-how-much-money-does-each-age-group-spend-on-coffee",
+    "href": "index.html#question-1-how-much-money-does-each-age-group-spend-on-coffee",
+    "title": "Great American Coffee Taste Test",
+    "section": "Question 1: How much money does each age group spend on coffee?",
+    "text": "Question 1: How much money does each age group spend on coffee?\nIntro:\nThe first question I chose to address for this project is: Which age group spends the most money on coffee per month? It then evolved into how much money does each age group spend on coffee?\nThe variables need to explore this question:\n\nage: What is your age?\ntotal_spend: In total, how much money do you typically spend on coffee in a month?\n\nThis interested me because as an avid coffee drinker, I would like to know if other folks spend as much money on coffee as i do.\nApproach:\nFor this question I chose to create a stacked bar chart in order look at numerical values across multiple categorical variables. This required me to derive a count for all of the reported total_spend ranges, group by age, and allowed me to show all of the data together on one chart.\nAnalysis:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscussion:\nAt face value, the youngest age group has the highest percentage of people that spend &gt;$100 per month. This subgroup also has the smallest number of total entries, so its likely just outlier data.\nThereafter, the trend appears to be that the older folks get the more they spend on coffee untill about the 55-64 year age group. Ac cross all groups the most people spend between $20-$60 on coffee per month."
+  },
+  {
+    "objectID": "index.html#question-2-what-is-the-favorite-kinds-of-coffee-for-each-age-group-gender-education-level-employment-status-and-political-affiliations-and-ethnicityrace",
+    "href": "index.html#question-2-what-is-the-favorite-kinds-of-coffee-for-each-age-group-gender-education-level-employment-status-and-political-affiliations-and-ethnicityrace",
+    "title": "Great American Coffee Taste Test",
+    "section": "Question 2: What is the favorite kinds of coffee for each age group, gender, education level, employment status, and political affiliations, and ethnicity/race?",
+    "text": "Question 2: What is the favorite kinds of coffee for each age group, gender, education level, employment status, and political affiliations, and ethnicity/race?\nIntro:\nThe second question I chose to address for this project is: What is the favorite kinds of coffee for each age group, gender, education level, employment status, and political affiliations, and ethnicity/race?\nThe variables need to explore this question:\n\nfavorite: What is your favorite coffee drink?\nemployment_status\neducation_level\ngender\npolitical_affiliation\nethnicity_race\n\nApproach:\nFor this question I chose to create another stacked bar chart. This was done for a similar reason to question where we are dealing with multiple categorical variables. To be able to generate a stacked bar chart, I had to transform the dataframe by doing a pivot long on the categorical variables of interest into a column called “personal_Info”, grouping by this new column, and taking a count of the favorite coffee drinks. To complete the graph I had to integrate a facet_wrap layer, with independent y-axis. Similar to Q1, all of this allowed me to show all of the data together on one chart.\nAnalysis:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscussion:\nDuring the data exploration phase of the proposal, it was shown that the most popular coffee drinks where regular drip coffee, pourovers, and lattes. This trend held true overall when separated out over all of the demographic data of interest. Other drinks of high interest where cappuccinos, and good ole plain espresso, or ole-reliable as I like to call it."
+  },
+  {
+    "objectID": "index.html#question-2-what-is-the-favorite-kinds-of-coffee-for-each-group-gender-education-level-employment-status-and-political-affiliations-and-ethnicityrace",
+    "href": "index.html#question-2-what-is-the-favorite-kinds-of-coffee-for-each-group-gender-education-level-employment-status-and-political-affiliations-and-ethnicityrace",
+    "title": "Great American Coffee Taste Test",
+    "section": "Question 2: What is the favorite kinds of coffee for each group: gender, education level, employment status, and political affiliations, and ethnicity/race?",
+    "text": "Question 2: What is the favorite kinds of coffee for each group: gender, education level, employment status, and political affiliations, and ethnicity/race?\nIntro:\nThe second question I chose to address for this project is: What is the favorite kinds of coffee for each group: gender, education level, employment status, and political affiliations, and ethnicity/race?\nThe variables need to explore this question:\n\nfavorite: What is your favorite coffee drink?\nemployment_status\neducation_level\ngender\npolitical_affiliation\nethnicity_race\n\nApproach:\nFor this question I chose to create another stacked bar chart. This was done for a similar reason to question where we are dealing with multiple categorical variables. To be able to generate a stacked bar chart, I had to transform the dataframe by doing a pivot long on the categorical variables of interest into a column called “personal_Info”, grouping by this new column, and taking a count of the favorite coffee drinks. To complete the graph I had to integrate a facet_wrap layer, with independent y-axis. Similar to Q1, all of this allowed me to show all of the data together on one chart.\nAnalysis:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscussion:\nDuring the data exploration phase of the proposal, it was shown that the most popular coffee drinks where regular drip coffee, pourovers, and lattes. This trend held true overall when separated out over all of the demographic data of interest. Other drinks of high interest where cappuccinos, and good ole plain espresso, or ole-reliable as I like to call it."
   }
 ]

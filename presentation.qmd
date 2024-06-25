@@ -1,9 +1,9 @@
 ---
-title: "Project title"
+title: "Great American Coffee Taste Test"
 subtitle: "INFO 526 - Summer 2024 - Final Project"
-author: "Author names"
+author: "Stats for Stacks: Luis Estrada"
 title-slide-attributes:
-  data-background-image: images/watercolour_sys02_img34_teacup-ocean.jpg
+  data-background-image: images/coffeeCup.jpeg
   data-background-size: stretch
   data-background-opacity: "0.7"
   data-slide-number: none
@@ -20,9 +20,13 @@ execute:
 #| label: load-packages
 #| include: false
 
-# Load packages here
-pacman::p_load(tidymodels,
-               tidyverse)
+if (!require("pacman")) 
+  install.packages("pacman") 
+# use this line for installing/loading 
+pacman::p_load(readr,dplyr,ggplot2,scico,
+               here,tidyverse,ggrepel,devtools,
+               ggridges,dsbox,fs,janitor)
+
 
 ```
 
@@ -30,136 +34,273 @@ pacman::p_load(tidymodels,
 #| label: setup
 #| include: false
 
-# Plot theme
-ggplot2::theme_set(ggplot2::theme_minimal(base_size = 11))
+# set theme for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 14))
 
-# For better figure resolution
+# set width of code output
+options(width = 65)
+# set figure parameters for knitr
 knitr::opts_chunk$set(
-  fig.retina = 3, 
-  dpi = 300, 
-  fig.width = 6, 
-  fig.asp = 0.618 
-  )
+  fig.width = 7,        # 7" width
+  fig.asp = 0.618,      # the golden ratio
+  fig.retina = 3,       # dpi multiplier for displaying HTML output on retina
+  fig.align = "center", # center align figures
+  dpi = 300             # higher dpi, sharper image
+)
 ```
 
 ```{r}
 #| label: load-data
 #| include: false
 # Load data here
-data(mtcars)
-mtcars$speed <- mtcars$hp / mtcars$wt
+coffee_survey <-  read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-05-14/coffee_survey.csv')
 
-data("penguins")
+#glimpse(coffee_survey)
+
+coffee_survey |> 
+  colnames() |> 
+  cat(sep = "\n")
+
+coffee_survey <- coffee_survey|>
+  janitor::clean_names() 
+
+
+coffee_survey_filt <-
+  subset(coffee_survey, select = c("age","total_spend","favorite","employment_status",
+                                   "education_level","gender","political_affiliation",
+                                   "ethnicity_race"))
+
+coffee_survey_filt<- 
+  coffee_survey_filt |>
+  mutate(
+    age = str_split(age,' ')%>% map_chr(.,1)
+  )
 ```
 
-# Using Quarto for presentations
+```{r,echo=FALSE}
+#| label: Question 1
+#| message: false
+#| warning: false
+#| fig-width: 20
+#| fig-height: 14 
 
-## Quarto
 
--   The presentation is created using the Quarto CLI
 
--   `##` sets the start of a new slide
+coffee_survey_calc <- coffee_survey_filt %>%
+  mutate(age=factor(age, ordered = T, 
+                    levels = rev(c(">65","55-64", "45-54","35-44",
+                                   "25-34", "18-24","<18"))),
+         total_spend=factor(total_spend, ordered = T, 
+                            levels = rev(c("<$20","$20-$40","$40-$60",
+                                           "$60-$80", "$80-$100",">$100")))) %>%
+  count(age,total_spend) %>%
+  group_by(age)%>%
+  na.omit()%>%
+  mutate(pct= prop.table(n) * 100)
+```
 
-## Layouts
+```{r}
+#| label: Question 2
+#| message: false
+#| warning: false
 
-You can use plain text
+coffee_survey_long <- 
+  coffee_survey_filt |>
+  pivot_longer(cols=c('employment_status','education_level','gender','political_affiliation','ethnicity_race'),
+    names_to = "personal_Info", 
+    values_to = "details")
 
-::: columns
-::: {.column width="40%"}
--   or bullet points[^1]
-:::
+#ggplot(coffee_survey_long)+
+#  geom_bar(aes(favorite,fill=favorite))+ 
+#  coord_flip(clip = "off")+labs(title='favorite')+
+#  scale_fill_brewer(palette = "Set3")
 
-::: {.column width="60%"}
-or in two columns
-:::
-:::
+coffee_survey_calc_long <- coffee_survey_long %>%
+  group_by(personal_Info,details)%>%
+  count(favorite) %>%
+  na.omit()%>%
+  mutate(pct= prop.table(n) * 100)
 
-[^1]: And add footnotes
+coffee_survey_calc_long$details <-  
+  factor(coffee_survey_calc_long$details,
+         levels=c("Less than high school","High school graduate","Some college or associate's degree",
+                  "Bachelor's degree","Master's degree","Doctorate or professional degree",
+                  "Retired","Student","Homemaker","Unemployed","Employed part-time","Employed full-time",
+                  "	Other (please specify)","Native American/Alaska Native","Black/African American",
+                  "Asian/Pacific Islander","Hispanic/Latino","White/Caucasian","Other (please specify)",
+                  "Prefer not to say","Non-binary","Female","Male","No affiliation","Independent","Republican",
+                  "Democrat"))
 
--   like
+coffee_survey_calc_long$favorite <-  
+  factor(coffee_survey_calc_long$favorite,
+         levels=c("Other","Cortado","Mocha","Iced coffee","Cappuccino","Cold brew","Espresso",
+                  "Americano","Blended drink (e.g. Frappuccino)","Latte","Pourover","Regular drip coffee"))
 
--   this
+coffee_survey_calc_long <-
+  coffee_survey_calc_long |>
+  mutate(
+    personal_Info = case_when(
+      personal_Info == "education_level" ~ "Education Level",
+      personal_Info == "employment_status" ~ "Employment Status",
+      personal_Info == "ethnicity_race" ~ "Ethnicity/Race",
+      personal_Info == "gender" ~ "Gender",
+      personal_Info == "political_affiliation" ~ "Political Affiliation"
+    )
+  )
+```
 
-## Code
+## Introduction and Motivation
+
+-   The coffee survey was collected from people participated in a YouTube event called the "Great American Coffee Taste Test".
+
+    -   This event was primairly to taste test 4 different types of coffee
+
+-   I chose this data set because I am an avid coffee drinker and exploring this data set would give me insight into the community that I would like to have
+
+## The Data
+
+-   The entire survey collected a wide variety of information.
+
+    -   This includes information ranging from favorite type of coffee, where you like to drink coffee, how much money you spend, education level, political affiliation etc...
+
+-   Consist of 4042 participants/observations (rows), and 57 variables (columns) worth of data.
+
+## Main Questions
+
+The two main questions I want to explore in this data set are the following
+
+1.  Started as: Which age group spends the most money on coffee per month?
+
+    -   Turned into: How much money does each age group spend on coffee?
+
+2.  What is the favorite kinds of coffee for each group: gender, education level, employment status, and political affiliations, and ethnicity/race?
+
+## Data Exploration #1 - Age
+
+```{r}
+ggplot(coffee_survey)+
+  geom_bar(aes(age,fill=age))+ 
+  coord_flip(clip = "off")+
+  labs(title='age')
+```
+
+## Data Exploration #2 - Favorite Coffee
+
+```{r}
+ggplot(coffee_survey)+
+  geom_bar(aes(favorite,fill=favorite))+ 
+  coord_flip(clip = "off")+
+  labs(title='favorite')
+```
+
+## Data Exploration #3 - Education Level
+
+```{r}
+ggplot(coffee_survey)+
+  geom_bar(aes(education_level,fill=education_level))+ 
+  coord_flip(clip = "off")+
+  labs(title='education_level')
+```
+
+## Data Exploration #4 - Gender
+
+```{r}
+ggplot(coffee_survey)+
+  geom_bar(aes(gender,fill=gender))+ 
+  coord_flip(clip = "off")+
+  labs(title='gender')
+```
+
+## Data Exploration #5 - Employment Status
+
+```{r}
+ggplot(coffee_survey)+
+  geom_bar(aes(employment_status,fill=employment_status))+ 
+  coord_flip(clip = "off")+
+  labs(title='employment_status')
+```
+
+## Visualization 1: Money spent on coffee by age group (1/2)
 
 ```{r, echo=FALSE}
-model <- lm(mpg ~ speed, data = mtcars) 
+#| label: Plot 1
+#| message: false
+#| warning: false
+#| fig-width: 20
+#| fig-height: 14 
 
-model |> tidy()
+coffee_survey_calc|>
+  ggplot() + 
+  aes(age, pct, fill=total_spend)+
+  geom_bar(stat="identity",width=0.7, size=0.2)+
+  geom_text(aes(label=paste0(sprintf("%1.1f", pct),"%")),
+            position=position_stack(vjust=0.5),
+            size =6, show.legend = FALSE,fontface = "bold")+
+  coord_flip(clip = "off")+
+  scale_fill_brewer(palette = "RdBu")+
+  theme(legend.position="top",
+        plot.background=element_rect(fill="white", color=NA),
+        panel.background = element_rect(fill="white", color=NA),
+        panel.grid=element_blank(),
+        plot.title = element_text(size=30),
+        legend.text = element_text(size=20),
+        axis.ticks.x = element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_text(size=20))+
+  labs(fill="", x="", y="")+
+  guides(fill = guide_legend(nrow = 1,reverse = TRUE))
+```
 
-model |> glance()
+## Visualization 1 - Money spent on coffee by age group (2/2)
+
+-   At face value, the youngest age group has the highest percentage of people that spend \>\$100 per month. This subgroup also has the smallest number of total entries, so its likely just outlier data.
+
+-   Thereafter, the trend appears to be that the older folks get the more they spend on coffee untill about the 55-64 year age group. Accross all groups the most people spend between \$20-\$60 on coffee per month.
+
+## Visualization 2 - Favorite type of coffee: A quick look (1/2)
+
+```{r, echo=FALSE}
+#| label: Plot 2
+#| message: false
+#| warning: false
+#| fig-width: 24
+#| fig-height: 14 
+
+coffee_survey_calc_long|>
+  ggplot(aes(details, pct, fill=favorite)) + 
+  geom_bar(stat="identity",width=0.7, size=0.5)+
+  coord_flip(clip = "off")+
+  facet_wrap(~ personal_Info,scales = "free",ncol=1, dir="v")+
+  geom_text(aes(label=paste0(sprintf("%1.1f", pct),"%")),
+            position=position_stack(vjust=0.5),
+            size =6, show.legend = FALSE,fontface = "bold")+
+  guides(fill = guide_legend(nrow = 2,reverse = TRUE))+
+  scale_fill_brewer(palette = "Set3")+
+  theme(legend.position="top", 
+        plot.background=element_rect(fill="white", color=NA),
+        panel.background = element_rect(fill="white", color=NA),
+        panel.grid=element_blank(),
+        plot.title = element_text(size=30),
+        legend.text = element_text(size=15),
+        axis.ticks.x = element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_text(size=15))+
+  labs(fill="", x="", y="")
 
 ```
 
-## Plots
+## Visualization 2 - Favorite type of coffee: A quick look (2/2)
 
-```{r}
-penguins |>
-  mutate(species = ifelse(species == "Adelie", "Adelie", "Other")) |>
-  ggplot(aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
-  geom_point()
-```
+-   Most people, regardless of education level, employment status, ethincity, Gender or political affiliation drink regular drip coffee, pour overs, or lattes.
 
-## Plot and text
+    -   A few specific groups have cappuccinos and espresso as a favorite drink.
 
-::: columns
-::: {.column width="50%"}
--   Some text
+## Conclusions 
 
--   goes here
-:::
+-   Accross all age groups, most people spend between 20-60 dollars on coffee per month
 
-::: {.column width="50%"}
-```{r, warning=FALSE, fig.width=5.5}
-penguins |>
-  ggplot(aes(x = bill_length_mm, y = species, color = species)) +
-  geom_boxplot(linewidth = 0.75,
-               outlier.size = 2.5) +
-  theme_minimal(base_size = 15) +
-  theme(legend.key.size = unit(0.8, "cm"))
-```
-:::
-:::
+-   Most people drink regular drip coffee, pour overs, or lattes.
 
-# A new section...
+    -   Some specific groups like cappuccinos and espresso as well
 
-## Tables
-
-If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
-
-```{r}
-penguins |> 
-  head() |>
-  kableExtra::kable() |>
-  kableExtra::kable_styling()
-```
-
-## Images
-
-![Image credit: Danielle Navarro, Percolate.](images/watercolour_sys02_img34_teacup-ocean.png){fig-align="center" width="500"}
-
-## Math Expressions {.smaller}
-
-You can write LaTeX math expressions inside a pair of dollar signs, e.g. \$\\alpha+\\beta\$ renders $\alpha + \beta$. You can use the display style with double dollar signs:
-
-```         
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-```
-
-$$
-\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-$$
-
-Limitations:
-
-1.  The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
-
-2.  There should not be spaces after the opening `$` or before the closing `$`.
-
-# Wrap up
-
-## Feeling adventurous?
-
--   You are welcomed to use the default styling of the slides. In fact, that's what I expect majority of you will do. You will differentiate yourself with the content of your presentation.
-
--   But some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs.
+With all of the information in the survey, there are many other ways to slice and dice the data. Many other valuable conclusions can likely be drawn

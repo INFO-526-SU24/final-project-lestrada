@@ -1,11 +1,11 @@
 ---
-title: "Project Title"
+title: "Great American Coffee Taste Test"
 subtitle: "INFO 526 - Summer 2024 - Final Project"
 author: 
-  - name: "Team name"
+  - name: "Stats for Stacks - Luis Estrada"
     affiliations:
       - name: "School of Information, University of Arizona"
-description: "Project description"
+description: "Project description: How much money do different age groups spend on coffee? How do coffee type preferences differ by age group?"
 format:
    html:
     code-tools: true
@@ -17,6 +17,234 @@ execute:
   echo: false
 ---
 
-## Abstract
+```{r}
+#| label: load-pkgs 
+#| warning: FALSE 
+#| message: FALSE 
+ 
+if (!require("pacman")) 
+  install.packages("pacman") 
+# use this line for installing/loading 
+pacman::p_load(readr,dplyr,ggplot2,scico,
+               here,tidyverse,ggrepel,devtools,
+               ggridges,dsbox,fs,janitor)
 
-Add project abstract here.
+# set theme for ggplot2
+ggplot2::theme_set(ggplot2::theme_minimal(base_size = 14))
+
+# set width of code output
+options(width = 65)
+# set figure parameters for knitr
+knitr::opts_chunk$set(
+  fig.width = 7,        # 7" width
+  fig.asp = 0.618,      # the golden ratio
+  fig.retina = 3,       # dpi multiplier for displaying HTML output on retina
+  fig.align = "center", # center align figures
+  dpi = 300             # higher dpi, sharper image
+)
+```
+
+```{r}
+#| label: Massage Data
+#| message: false
+#| warning: false
+
+
+coffee_survey <-  read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-05-14/coffee_survey.csv')
+
+#glimpse(coffee_survey)
+
+coffee_survey |> 
+  colnames() |> 
+  cat(sep = "\n")
+
+coffee_survey <- coffee_survey|>
+  janitor::clean_names() 
+
+
+coffee_survey_filt <-
+  subset(coffee_survey, select = c("age","total_spend","favorite","employment_status",
+                                   "education_level","gender","political_affiliation",
+                                   "ethnicity_race"))
+
+coffee_survey_filt<- 
+  coffee_survey_filt |>
+  mutate(
+    age = str_split(age,' ')%>% map_chr(.,1)
+  )
+```
+
+## Introduction
+
+The coffee survey was collected from people that participated in a YouTube event called the "Great American Coffee Taste Test". This event was primairly to taste test 4 different types of coffee, while the entire survey collected a wide variety of information. It has a total of 4042 participants/observations (rows), and 57 variables (columns).
+
+Based on the data exploration done during the proposal, the demographics are of people between the ages of 18-64 years, with bachelors degrees, male, full time employees, and white/Caucasian ethnicity. This is worth noting in my mind, to try and understand how representative the data is of the whole population at large.
+
+## Question 1:  How much money does each age group spend on coffee?
+
+Intro:
+
+The first question I chose to address for this project is: Which age group spends the most money on coffee per month? It then evolved into how much money does each age group spend on coffee?
+
+The variables need to explore this question:
+
+-   age: What is your age?
+-   total_spend: In total, how much money do you typically spend on coffee in a month?
+
+This interested me because as an avid coffee drinker, I would like to know if other folks spend as much money on coffee as i do.
+
+Approach:
+
+For this question I chose to create a stacked bar chart in order look at numerical values across multiple categorical variables. This required me to derive a count for all of the reported total_spend ranges, group by age, and allowed me to show all of the data together on one chart.
+
+Analysis:
+
+```{r}
+#| label: Q1
+#| message: false
+#| warning: false
+#| fig-width: 20
+#| fig-height: 14 
+
+
+ggplot(coffee_survey)+geom_bar(aes(age,fill=age))+ 
+  coord_flip(clip = "off")+labs(title='age')
+
+coffee_survey_calc <- coffee_survey_filt %>%
+  mutate(age=factor(age, ordered = T, 
+                    levels = rev(c(">65","55-64","45-54","35-44",
+                                   "25-34", "18-24","<18"))),
+         total_spend=factor(total_spend, ordered = T, 
+                            levels = rev(c("<$20","$20-$40","$40-$60",
+                                           "$60-$80", "$80-$100",">$100")))) %>%
+  count(age,total_spend) %>%
+  group_by(age)%>%
+  na.omit()%>%
+  mutate(pct= prop.table(n) * 100)
+
+
+coffee_survey_calc|>
+  ggplot() + 
+  aes(age, pct, fill=total_spend)+
+  geom_bar(stat="identity",width=0.7, size=0.2)+
+  geom_text(aes(label=paste0(sprintf("%1.1f", pct),"%")),
+            position=position_stack(vjust=0.5),
+            size =6, show.legend = FALSE,fontface = "bold")+
+  coord_flip(clip = "off")+
+  scale_fill_brewer(palette = "RdBu")+
+  theme(legend.position="top",
+        plot.background=element_rect(fill="white", color=NA),
+        panel.background = element_rect(fill="white", color=NA),
+        panel.grid=element_blank(),
+        plot.title = element_text(size=30),
+        legend.text = element_text(size=20),
+        axis.ticks.x = element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_text(size=20))+
+  labs(fill="", x="", y="",
+       title="Money spent on coffee by age group")+
+  guides(fill = guide_legend(nrow = 1,reverse = TRUE))
+```
+
+Discussion:
+
+At face value, the youngest age group has the highest percentage of people that spend \>\$100 per month. This subgroup also has the smallest number of total entries, so its likely just outlier data.
+
+Thereafter, the trend appears to be that the older folks get the more they spend on coffee untill about the 55-64 year age group. Ac cross all groups the most people spend between \$20-\$60 on coffee per month.
+
+## Question 2: What is the favorite kinds of coffee for each group: gender, education level, employment status, and political affiliations, and ethnicity/race?
+
+Intro:
+
+The second question I chose to address for this project is: What is the favorite kinds of coffee for each group: gender, education level, employment status, and political affiliations, and ethnicity/race?
+
+The variables need to explore this question:
+
+-   favorite: What is your favorite coffee drink?
+-   employment_status
+-   education_level
+-   gender
+-   political_affiliation
+-   ethnicity_race
+
+Approach:
+
+For this question I chose to create another stacked bar chart. This was done for a similar reason to question where we are dealing with multiple categorical variables. To be able to generate a stacked bar chart, I had to transform the dataframe by doing a pivot long on the categorical variables of interest into a column called "personal_Info", grouping by this new column, and taking a count of the favorite coffee drinks. To complete the graph I had to integrate a facet_wrap layer, with independent y-axis. Similar to Q1, all of this allowed me to show all of the data together on one chart.
+
+Analysis:
+
+```{r}
+#| label: Q2
+#| message: false
+#| warning: false
+#| fig-width: 20
+#| fig-height: 14
+coffee_survey_long <- 
+  coffee_survey_filt |>
+  pivot_longer(cols=c('employment_status','education_level','gender','political_affiliation','ethnicity_race'),
+    names_to = "personal_Info", 
+    values_to = "details")
+
+ggplot(coffee_survey_long)+geom_bar(aes(favorite,fill=favorite))+ 
+  coord_flip(clip = "off")+labs(title='favorite')+
+  scale_fill_brewer(palette = "Set3")
+
+coffee_survey_calc_long <- coffee_survey_long %>%
+  group_by(personal_Info,details)%>%
+  count(favorite) %>%
+  na.omit()%>%
+  mutate(pct= prop.table(n) * 100)
+
+coffee_survey_calc_long$details <-  
+  factor(coffee_survey_calc_long$details,
+         levels=c("Less than high school","High school graduate","Some college or associate's degree",
+                  "Bachelor's degree","Master's degree","Doctorate or professional degree",
+                  "Retired","Student","Homemaker","Unemployed","Employed part-time","Employed full-time",
+                  "	Other (please specify)","Native American/Alaska Native","Black/African American",
+                  "Asian/Pacific Islander","Hispanic/Latino","White/Caucasian","Other (please specify)",
+                  "Prefer not to say","Non-binary","Female","Male","No affiliation","Independent","Republican",
+                  "Democrat"))
+
+coffee_survey_calc_long$favorite <-  
+  factor(coffee_survey_calc_long$favorite,
+         levels=c("Other","Cortado","Mocha","Iced coffee","Cappuccino","Cold brew","Espresso",
+                  "Americano","Blended drink (e.g. Frappuccino)","Latte","Pourover","Regular drip coffee"))
+
+coffee_survey_calc_long <-
+  coffee_survey_calc_long |>
+  mutate(
+    personal_Info = case_when(
+      personal_Info == "education_level" ~ "Education Level",
+      personal_Info == "employment_status" ~ "Employment Status",
+      personal_Info == "ethnicity_race" ~ "Ethnicity/Race",
+      personal_Info == "gender" ~ "Gender",
+      personal_Info == "political_affiliation" ~ "Political Affiliation"
+    )
+  )
+
+coffee_survey_calc_long|>
+  ggplot(aes(details, pct, fill=favorite)) + 
+  geom_bar(stat="identity",width=0.7, size=0.5)+
+  coord_flip(clip = "off")+
+  facet_wrap(~ personal_Info,scales = "free",ncol=1, dir="v")+
+  geom_text(aes(label=paste0(sprintf("%1.1f", pct),"%")),
+            position=position_stack(vjust=0.5),
+            size =4, show.legend = FALSE,fontface = "bold")+
+  guides(fill = guide_legend(nrow = 2,reverse = TRUE))+
+  scale_fill_brewer(palette = "Set3")+
+  theme(legend.position="top", 
+        plot.background=element_rect(fill="white", color=NA),
+        panel.background = element_rect(fill="white", color=NA),
+        panel.grid=element_blank(),
+        plot.title = element_text(size=30),
+        legend.text = element_text(size=15),
+        axis.ticks.x = element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_text(size=15))+
+  labs(fill="", x="", y="",
+       title="Favorite type of coffee: A quick look")
+```
+
+Discussion:
+
+During the data exploration phase of the proposal, it was shown that the most popular coffee drinks where regular drip coffee, pourovers, and lattes. This trend held true overall when separated out over all of the demographic data of interest. Other drinks of high interest where cappuccinos, and good ole plain espresso, or ole-reliable as I like to call it.
