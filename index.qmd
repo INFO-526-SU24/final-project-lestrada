@@ -80,7 +80,7 @@ The coffee survey was collected from people that participated in a YouTube event
 
 Based on the data exploration done during the proposal, the demographics are of people between the ages of 18-64 years, with bachelors degrees, male, full time employees, and white/Caucasian ethnicity. This is worth noting in my mind, to try and understand how representative the data is of the whole population at large.
 
-## Question 1:  How much money does each age group spend on coffee?
+## Question 1: How much money does each age group spend on coffee?
 
 Intro:
 

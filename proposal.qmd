@@ -107,7 +107,7 @@ Q2: What is the favorite kinds of coffee for each group: gender, education level
 Task List:
 
 | Task Name    | Status   | Assignee | Due   | Priority | Summary                                                                               |
-|----------|----------|----------|----------|----------|-----------------------|
+|--------------|----------|----------|-------|----------|---------------------------------------------------------------------------------------|
 | Import Data  | complete | luis     | 05/29 | Low      | use read_csv to import data from the tidyTuesday github repo                          |
 | Explore Data | complete | luis     | 06/01 | Moderate | plot counts for each of the categorical variables to get a feel for whats in the data |
 | Q1           | Complete | luis     | 06/03 | High     | how much money does each age group spend on coffee?                                   |

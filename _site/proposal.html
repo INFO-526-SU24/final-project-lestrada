@@ -5097,12 +5097,12 @@ political_affiliation</code></pre>
 <p>Task List:</p>
 <table class="table">
 <colgroup>
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 13%">
-<col style="width: 31%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 63%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -5456,7 +5456,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/INFO-526-SU24\.github\.io\/final-project-lestrada\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -5932,7 +5932,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb30-111"><a href="#cb30-111"></a>Task List:</span>
 <span id="cb30-112"><a href="#cb30-112"></a></span>
 <span id="cb30-113"><a href="#cb30-113"></a>| Task Name    | Status   | Assignee | Due   | Priority | Summary                                                                               |</span>
-<span id="cb30-114"><a href="#cb30-114"></a>|----------|----------|----------|----------|----------|-----------------------|</span>
+<span id="cb30-114"><a href="#cb30-114"></a>|--------------|----------|----------|-------|----------|---------------------------------------------------------------------------------------|</span>
 <span id="cb30-115"><a href="#cb30-115"></a>| Import Data  | complete | luis     | 05/29 | Low      | use read_csv to import data from the tidyTuesday github repo                          |</span>
 <span id="cb30-116"><a href="#cb30-116"></a>| Explore Data | complete | luis     | 06/01 | Moderate | plot counts for each of the categorical variables to get a feel for whats in the data |</span>
 <span id="cb30-117"><a href="#cb30-117"></a>| Q1           | Complete | luis     | 06/03 | High     | how much money does each age group spend on coffee?                                   |</span>
